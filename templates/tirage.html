@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h1>Choisis une part</h1>
+    <img src="static/{{galette}}">
+    <hr/>
+    <form action="tirage/{{user}}" method="post">
+      <input name="part"/>
+      <input type="submit" value="OK">
+    </form>
+{% endblock %}

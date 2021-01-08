@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if not user %}
+  <h1>Hey un nom une part</h1>
+    <form action="enter" method="get">
+      <input name="user"/>
+      <input type="submit" value="Chassez la fève">
+    </form>
+{% elif user != 'done' %}
+  <h1>Hey {{user}}</h1>
+{% endif %}
+{% endblock %}
