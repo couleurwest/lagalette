@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+  <meta name="viewport"
+     content="width=device-width, initial-scale=1, user-scalable=yes">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <style >
+.badged {
+    background: #ffae00;
+    color: #0a0a0a;
+    min-width: 2.1em;
+    padding: .3em;
+    border-radius: 50%;
+    text-align: center;
+    color: #fefefe;
+   }
+.badged.info {
+    background: #0089ff;
+    color: #0a0a0a;
+   }
+   </style>
     <title>Ma galette Python</title>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-            {{ message }}</li>
-      {% endif %}
-    {% endwith %}
-    {% block body %}{% endblock %}
 </head>
-<body>
+<body >
 
+    <div class="callout large primary">
+      <div class="text-center">
+        <h1>Chassez la fêve</h1>
+        <h2 class="subheader">Bienvenue sur ma galette 100% python</h2>
+      </div>
+    </div>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class=flashes>
+    {% for message in messages %}
+      <div class="callout large alert">
+      <div class="text-center">
+        <h2 class="subheader">{{message}}</h2>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+    <main class="grid-container">
+        <div class="grid-x grid-padding-x align-center-middle text-center">
+        {% block body %}
+
+        {% endblock %}
+        </div>
+
+    </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+<script>
+  $(document).foundation();
+</script>
 </html>

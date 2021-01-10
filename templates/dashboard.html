@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if user %}
+<div class="row">
+  <div class="card" style="width: 500px">
+    <div class="card-divider align-center"><h4>Vos galette</h4></div>
+    <div class=''>
+        {% if user_participation.count ==  0 %}
+        <span>Oh ! Ben dis donc ... on a pas encore chassez la fèves ?</span>
+        {% endif %}
+        {% if user_participation.count < 3 %}
+            <a href="{{url_for('tirage', user= user)}}" title="Faire un tirage" class="button success">Chasser la fève</a>
+        {% endif %}
+        {% if user_participation.count >  0 %}
+                <div class="grid-x grid-padding-x text-center small-up-3" data-equalizer="" data-equalize-by-row="true">
+
+            {% for galette in user_participation.participations %}
+                <div class="cell callout  secondary" data-equalizer-watch>
+                    <h5>Galette {{galette.galette + 1}}</h5>
+                    <div>
+                        <div class="cell text-center">
+                            <span class="badged info">{{ galette.part }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row medium-12">
+    <div class="grid-x grid-padding-x text-center small-up-4" data-equalizer="" data-equalize-by-row="true">
+      {% for galette in galettes %}
+
+        <div class="cell callout  {% if galette.participants|count == 6 %}success{% else %}warning{% endif %}" data-equalizer-watch>
+          <h5>Galette {{galette.numero + 1}}</h5>
+            <div class="grid-x grid-padding-x small-up-1 medium-up-4" data-equalizer="" data-equalize-by-row="true">
+          {% for participant , part in galette.participants.items() %}
+            <div class="cell" data-equalizer-watch>
+                <span class="{% if part|int == galette.feve and galette.participants|count == 6 %}badged shadow{% endif %}">{{participant}}</span>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+{% else %}
+QUI EST TU ET QUE VEUX TU ?
+{% endif %}
+{% endblock %}
+
+

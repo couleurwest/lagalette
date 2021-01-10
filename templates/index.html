@@ -1,12 +1,18 @@
 {% extends "layout.html" %}
 {% block body %}
-{% if not user %}
-  <h1>Hey un nom une part</h1>
-    <form action="enter" method="get">
-      <input name="user"/>
-      <input type="submit" value="Chassez la fève">
+<div class="row">
+  <div class="card" style="width: 500px">
+    <div class="card-divider align-center">
+      <h4>Indiquez votre nom</h4>
+    </div>
+    <form action="{{url_for('lagalette')}}" method="get">
+      <div class="card-section">
+        <input name="user" class="input-group-field"/>
+      </div>
+      <div class="card-section">
+        <input type="submit" class="button success" value="Chassez la fève">
+      </div>
     </form>
-{% elif user != 'done' %}
-  <h1>Hey {{user}}</h1>
-{% endif %}
+  </div>
+</div>
 {% endblock %}

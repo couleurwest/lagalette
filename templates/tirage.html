@@ -1,10 +1,26 @@
 {% extends "layout.html" %}
 {% block body %}
-  <h1>Choisis une part</h1>
-    <img src="static/{{galette}}">
-    <hr/>
-    <form action="tirage/{{user}}" method="post">
-      <input name="part"/>
-      <input type="submit" value="OK">
-    </form>
+<div class="row">
+   <div class="card" style="width: 800px">
+      <div class="card-divider align-center">
+        <h4>Chasse la fêve</h4>
+      </div>
+      <img src="{{url_for('static', filename=galette)}}">
+      <div class="card-section grid-x align-center">
+      <form action="{{ url_for('lagalette', user=user) }}" method="get">
+        <div class="grid-padding-y large  button-group align-center  small-up-3" width="300px">
+          {% for i in range (1,7) %}
+            <div class="cell" >
+                {% if i in liste %}
+                <span  class="button alert large ">{{i}} </span>
+                {% else %}
+                <input type="submit" class="button  success shadow large " name="part" value="{{i}}"/>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+      </form>
+      </div>
+    </div>
+</div>
 {% endblock %}
