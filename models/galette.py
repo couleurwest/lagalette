@@ -4,7 +4,6 @@ import turtle
 from PIL import Image
 from dreamtools import tools
 from dreamtools.cfgmng import CFGBases
-from dreamtools.logmng import CTracker
 
 from models import savingbyref
 
@@ -14,6 +13,7 @@ class CPart:
     ANGLE = 60
     COLOR_ENABLE = '#E1991A'
     COLOR_TAKEN = "#F2aa2b"
+
     def __init__(self, indice, user=None):
         self.__dict__.update({"indice": indice, 'user':user})
 
@@ -75,6 +75,7 @@ class CGalette :
     @staticmethod
     def newuser (user):
         fiche_user = CGalette.state_user(user)
+
         if fiche_user['count'] >= 3:
             return fiche_user
 
@@ -107,6 +108,7 @@ class CGalette :
 
         CGalette.save()
         return fiche_user
+
     @staticmethod
     def save():
         data = []
@@ -144,9 +146,6 @@ class CGalette :
 
             return True
         return False
-
-
-
 
 
     @staticmethod
