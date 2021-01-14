@@ -96,9 +96,9 @@ class CGalette:
 
         CGalette.ENCOURS = indice
 
-        if 0 < len(CGalette.GALETTES) <= indice :
+        if 0 < len(CGalette.GALETTES) <= indice:
             galette = CGalette(
-                participants= {user: 0},
+                participants={user: 0},
                 feve=tools.aleatoire(6, 1),
                 numero=CGalette.ENCOURS)
             CGalette.GALETTES.append(galette)
