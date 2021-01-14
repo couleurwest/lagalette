@@ -12,5 +12,14 @@ Il y a six parts part Galette.
 
 Les résultats de seront disponible qu'une fois les six part récupérer.
 
+
+## Execution
+
+Récupérer l'adresse IP du poste serveur (cmd > ipconfig)
+
+> deployer et lancer ./lagalette/dist/pyLaGalette.exe sur le poste serveur 
+> Lancer votre navigateur et taper l'adresse IP du poste serveur
+
+
 ## Crédits
 (c) [2021 - Couleur West IT](https://couleurwest-it.com)
