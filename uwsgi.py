@@ -12,9 +12,9 @@ dir_image = resource.get_resource_path('images')
 tools.makedirs(dir_image)
 
 if __name__ == '__main__':
-   serve(
-      web_app,
-      host=my_ip,
-      port=5005,
-      threads=2
-   )
+    serve(
+        web_app,
+        host=my_ip,
+        port=5005,
+        threads=2
+    )

@@ -7,7 +7,7 @@ Entrer dans la ronde de l'épiphanie. Trois galettes vous attendent trois chance
 ## Comment jouer ?
 
 C'est simple
-Tu tre connecte, tu donne ton nom et tu prend une part de galette.
+Tu te connecte, tu donne ton nom et tu prend une part de galette.
 Il y a six parts part Galette.
 
 Les résultats de seront disponible qu'une fois les six part récupérer.
