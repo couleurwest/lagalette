@@ -1,20 +1,16 @@
 import os
 import sys
-
-from dreamtools import tools
-
-from models.galette import CGalette
 from resource import get_resource_path
 
 from dreamtools.logmng import CTracker
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, send_from_directory
 
 from models.galette import CGalette
 
 if getattr(sys, 'frozen', False):
     template_folder = os.path.join(sys._MEIPASS, 'templates')
-    tools.makedirs('static')
-    web_app = Flask(__name__, template_folder=template_folder)
+    static_folder = os.path.join(sys._MEIPASS, 'static')
+    web_app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
 else:
     web_app = Flask(__name__)
 
@@ -78,3 +74,8 @@ def lagalette(user=None):
 def tirage(user):
     r = CTracker.fntracker(CGalette.newgalette, 'Nouveau tirage')
     return render_template('tirage.html', user=user, galette=r.data[0], liste=[int(x) for x in r.data[1]] )
+
+@web_app.route('/images/<filename>')
+def image(filename):
+    dir_image = get_resource_path('images')
+    return send_from_directory(dir_image, filename, as_attachment=False)

@@ -4,6 +4,8 @@
     <meta charset="utf-8">
   <meta name="viewport"
      content="width=device-width, initial-scale=1, user-scalable=yes">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <style >
 .badged {
@@ -28,7 +30,11 @@
       <div class="text-center">
         <h1>Chassez la fêve</h1>
         <h2 class="subheader">Bienvenue sur ma galette 100% python</h2>
+          <div>Entrer dans la ronde de l'épiphanie.<br/>
+            Trois galettes vous attendent, trois chances de devenir le roi ou la reine 2021
+        </div>
       </div>
+
     </div>
 {% with messages = get_flashed_messages() %}
   {% if messages %}

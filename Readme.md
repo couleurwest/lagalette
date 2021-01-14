@@ -1,4 +1,6 @@
-#Venez chasse la fêve
+![Logo](https://couleurwest-it.com/static/images/ban)
+
+#Venez chasser la fêve
 
 Entrer dans la ronde de l'épiphanie. Trois galettes vous attendent trois chances de devenir le roi ou la reine de ce début d'année
 

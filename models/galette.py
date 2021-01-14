@@ -5,6 +5,7 @@ from PIL import Image
 from dreamtools import tools
 from dreamtools.cfgmng import CFGBases
 
+import resource
 from models import savingbyref
 
 
@@ -52,6 +53,7 @@ class CPart:
         turtle.down()
         turtle.color('#5b4600')
         turtle.write(self.user or self.indice,font=style, align='center')
+
 
 
 class CGalette :
@@ -154,8 +156,9 @@ class CGalette :
         galette = CGalette.GALETTES[indice]
         participants = galette.participants
 
+        dir_image = resource.get_resource_path('images')
         nameimage = f'galette{indice}.png'
-        pathimage = f'static/{nameimage}'
+        pathimage = f'{dir_image}/{nameimage}'
 
         ts = turtle.getscreen()
         ts.clear()
@@ -173,7 +176,7 @@ class CGalette :
 
         CGalette.deco()
 
-        image_eps=f"static/{nameimage[:-3]}eps"
+        image_eps=f"{nameimage[:-3]}eps"
         ts.getcanvas().postscript(file=image_eps)
         im = Image.open(image_eps)
 

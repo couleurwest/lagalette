@@ -5,7 +5,7 @@
       <div class="card-divider align-center">
         <h4>Chasse la fêve</h4>
       </div>
-      <img src="{{url_for('static', filename=galette)}}">
+      <img src="{{url_for('image', filename=galette)}}">
       <div class="card-section grid-x align-center">
       <form action="{{ url_for('lagalette', user=user) }}" method="get">
         <div class="grid-padding-y large  button-group align-center  small-up-3" width="300px">
